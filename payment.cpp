@@ -5,9 +5,65 @@
 using namespace std;
 
 int main(){
+//State input
 string state;
-    cout<<"Enter the state"<<endl;
-    cin >>state;
+    cout<< "State Name:"<<endl;
+    cin>>state;
+if (!cin) // check for extraction failure
+{
+	cin.clear(); // clear out the dirty bit
+  cin.ignore(10000, '\n'); // ignore the bad input
+}
+else {
+}
+    
+//Amount input
+double amount = 0;
+cout<< "Purchase amount:"<< endl;   
+    cin>>amount;
+    if (!cin) // check for extraction failure
+{
+	cin.clear(); // clear out the dirty bit
+  cin.ignore(10000, '\n'); // ignore the bad input
+}
+else {
+}
+    
+//Month input
+string month;
+cout<< "Provide the month:"<< endl;
+cin>>month;
+ if (!cin) // check for extraction failure
+{
+	cin.clear(); // clear out the dirty bit
+  cin.ignore(10000, '\n'); // ignore the bad input
+}
+else {
+}
+
+//day input
+    int day = 0;
+    cout<< "Provide the day:"<< endl;
+    cin >> day;
+ if (!cin) // check for extraction failure
+{
+	cin.clear(); // clear out the dirty bit
+  cin.ignore(10000, '\n'); // ignore the bad input
+}
+else {
+}
+//year input
+    int year = 0;
+    cout<< "Provide the year:"<< endl;
+    cin >> year;
+ if (!cin) // check for extraction failure
+{
+	cin.clear(); // clear out the dirty bit
+  cin.ignore(10000, '\n'); // ignore the bad input
+}
+else {
+}   
+    //State numbers
     double stateTaxRate, avgLocalTaxRate, levy;
     if (state == "Alabama") {
         stateTaxRate = 4.00;
@@ -214,61 +270,52 @@ string state;
         cout << "Invalid state!" << std::endl;
         return -1;
     }
-
-double amount = 0;
-    cout<<"Enter the amount"<<endl;
-    cin>>amount;
-    if(amount<0){
+//invalid amount
+    if(amount<=0){
         cout<<"Invalid amount!"<<endl;
         return -1;}
-    
-string month;
-cout<<"Enter the Month"<<endl;
-cin>>month;
-if (month == "January") {
-        cout << "Month is January" << std::endl;
-    } else if (month == "February") {
-        cout << "Month is February" << std::endl;
-    } else if (month == "March") {
-        cout << "Month is March" << std::endl;
-    } else if (month == "April") {
-        std::cout << "Month is April" << std::endl;
-    } else if (month == "May") {
-        std::cout << "Month is May" << std::endl;
-    } else if (month == "June") {
-        std::cout << "Month is June" << std::endl;
-    } else if (month == "July") {
-        std::cout << "Month is July" << std::endl;
-    } else if (month == "August") {
-        std::cout << "Month is August" << std::endl;
-    } else if (month == "September") {
-        std::cout << "Month is September" << std::endl;
-    } else if (month == "October") {
-        std::cout << "Month is October" << std::endl;
-    } else if (month == "November") {
-        std::cout << "Month is November" << std::endl;
-    } else if (month == "December") {
-        std::cout << "Month is December" << std::endl;
-    } else {
-        std::cout << "Invalid month!" << std::endl;
-        return -1;
-    }
 
-    int day = 0;
-    cout<<"Enter the day"<<endl;
-    cin >> day;
-    if(day>=31 || day<=1){
+//invalid month
+if (month == "January") {
+    // Code for January
+} else if (month == "February") {
+    // Code for February
+} else if (month == "March") {
+    // Code for March
+} else if (month == "April") {
+    // Code for April
+} else if (month == "May") {
+    // Code for May
+} else if (month == "June") {
+    // Code for June
+} else if (month == "July") {
+    // Code for July
+} else if (month == "August") {
+    // Code for August
+} else if (month == "September") {
+    // Code for September
+} else if (month == "October") {
+    // Code for October
+} else if (month == "November") {
+    // Code for November
+} else if (month == "December") {
+    // Code for December
+} else {
+    cout << "Invalid month!" << endl;
+    return -1;
+}
+
+//invalid day
+    if(day>31 || day<1){
         cout<<"Invalid day!"<<endl;
         return -1;}
-    int year = 0;
-    cout<<"Enter the year"<<endl;
-    cin >> year;
-    if(year <= 2025 || year >=1){
+//invalid year
+    if(year > 2025 || year < 1){
         cout<<"Invalid year!"<<endl;
         return -1;}
 
     double total = amount;
-    
+    //exceptions for tax free days 
     if((state == "South Carolina" || state == "Nevada" || state == "Texas" || state == "Ohio"|| state == "West Virginia") && month == "August" && day>=5 && day<=7){
         cout<<"Please pay a total of $"<< fixed << setprecision(2) << total <<endl;
         return 0;}
